@@ -28,14 +28,11 @@ class AuthNotifier extends StateNotifier<AuthState> {
       final user = await authRepository.login(email, password);
       _setLoggedUser(user);
 
-    } on WrongCredentials {
-      logout('Wrong credentials');
-    } on ConnectionTimeout {
-      logout('Connection timeout');
+    } on CustomError catch (e) {
+      logout(e.message);
     } catch (e) {
       logout('Error not controlled');
     }
-
   }
   
   void registerUser( String email, String password) async {
