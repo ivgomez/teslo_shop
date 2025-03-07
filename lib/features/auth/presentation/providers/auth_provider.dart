@@ -21,7 +21,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     required this.authRepository,
   }): super( AuthState() );
 
-  void loginUser( String email, String password) async {
+  Future<void> loginUser( String email, String password) async {
     await Future.delayed(Duration(milliseconds: 500));
 
     try {
@@ -30,6 +30,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
     } on WrongCredentials {
       logout('Wrong credentials');
+    } on ConnectionTimeout {
+      logout('Connection timeout');
     } catch (e) {
       logout('Error not controlled');
     }
