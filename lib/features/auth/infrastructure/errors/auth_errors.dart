@@ -6,5 +6,5 @@ class CustomError implements Exception {
   final String message;
   //final int errorCode;
 
-  CustomError(this.message);
+  CustomError([this.message = 'An unknown error occurred']);
 }
