@@ -26,7 +26,7 @@ class ProductsDatasourceImpl extends ProductsDataSource {
 
       final String? productId = productLike['id'];
       final String method = ( productId == null ) ? 'POST' : 'PATCH';
-      final String url = ( productId == null ) ? '/post' : '/products/$productId';
+      final String url = ( productId == null ) ? '/products' : '/products/$productId';
 
       productLike.remove('id');
 
@@ -74,7 +74,6 @@ class ProductsDatasourceImpl extends ProductsDataSource {
 
   @override
   Future<List<Product>> searchProductByTerm(String term) {
-    // TODO: implement searchProductByTerm
     throw UnimplementedError();
   }
 }
