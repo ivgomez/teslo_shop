@@ -14,8 +14,6 @@ class CameraGalleryServiceImpl extends CameraGalleryService {
     );
 
     if (photo == null) return null;
-
-    print('We have a gallery photo: ${photo.path}');
     
     return photo.path;
   }
@@ -30,8 +28,6 @@ class CameraGalleryServiceImpl extends CameraGalleryService {
     );
 
     if (photo == null) return null;
-
-    print('We have a photo: ${photo.path}');
     
     return photo.path;
   }
