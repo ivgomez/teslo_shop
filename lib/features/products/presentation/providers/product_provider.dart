@@ -50,7 +50,7 @@ class ProductNotifier extends StateNotifier<ProductState> {
           product: newEmptyProduct(),
         );
         return;
-      };
+      }
 
       final product = await productRepository.getProductById( state.id );
 
